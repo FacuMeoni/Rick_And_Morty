@@ -7,5 +7,11 @@ server.use(express.json());
 server.use(morgan('dev'));
 
 server.use('/characters', characterRouter);
+server.use((req, res, next) => {
+    res.status(404).json({
+        success: false,
+        error: 'Route not found.'
+    })
+});
 
 export default server;
