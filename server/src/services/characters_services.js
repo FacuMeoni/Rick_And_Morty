@@ -30,7 +30,6 @@ export const fetchAllCharacters = async() => {
     return characters;
 }
 
-
 export const saveDBCharacters = async() => {
     const characters = await fetchAllCharacters();
 
