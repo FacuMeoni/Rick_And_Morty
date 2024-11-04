@@ -13,7 +13,7 @@ export const Character = sequelize.define(
         allowNull: false
     },
     status: {
-        type: DataTypes.ENUM('Alive', 'Dead', 'unknown'),
+        type: DataTypes.STRING,
         allowNull: false
     },
     species: {
@@ -21,7 +21,7 @@ export const Character = sequelize.define(
         allowNull: false
     },
     gender: {
-        type: DataTypes.ENUM('Female', 'Male', 'Genderless', 'unknown'),
+        type: DataTypes.STRING,
         allowNull: false
     },
     origin: {
