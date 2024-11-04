@@ -5,7 +5,7 @@ import characterRouter from '../routes/characters_routes.js';
 const server = express();
 
 server.use(express.json());
-ser
+server.use(morgan('dev'));
 
 server.use(characterRouter);
 
