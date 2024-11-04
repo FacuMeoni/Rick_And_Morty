@@ -4,8 +4,8 @@ import { pagination } from '../utils/pagination.js';
 
 export const getAllCharacters = async(req, res) => {
 
-    const { page = 1, status, gender, origin, species } = req.query;
-    const where = filterCharacters({ status, gender, origin, species })
+    const { page = 1, status, gender, origin, species, name } = req.query;
+    const where = filterCharacters({ status, gender, origin, species, name })
     const totalCharacters = await Character.count({ where });
     const { limit, offset, totalPages } = pagination(totalCharacters, page);
     const characters = await Character.findAll({
@@ -27,7 +27,6 @@ export const getAllCharacters = async(req, res) => {
         characters
     });
 }
-
 
 export const getCharacterById = async(req, res) => {
     const { id } = req.params;
