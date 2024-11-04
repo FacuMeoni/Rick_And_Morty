@@ -8,6 +8,4 @@ server.use(morgan('dev'));
 
 server.use('/characters', characterRouter);
 
-
-
 export default server;

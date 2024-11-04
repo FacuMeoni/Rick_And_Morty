@@ -18,6 +18,7 @@ export const getAllCharacters = async(req, res) => {
     }
     
     return res.status(200).json({
+        succcess: true,
         info: {
             totalPages,
             currentPage: page,
@@ -28,3 +29,23 @@ export const getAllCharacters = async(req, res) => {
 }
 
 
+export const getCharacterById = async(req, res) => {
+    const { id } = req.params;
+
+    if(!id || isNaN(id)){
+        console.log("Please send an invalid id")
+        return;
+    }
+
+    const character = await Character.findByPk(id);
+
+    if(!character){
+        console.log(`Dont found any character with ID ${id}, please send between 1 and 826`);
+        return;
+    }
+
+    return res.status(200).json({
+        success: true,
+        character
+    })
+}
