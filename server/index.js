@@ -1,11 +1,16 @@
+import { config } from "dotenv";
+config();
 import server from "./src/config/server.js";
 import sequelize from "./src/config/database.js";
 import { saveDBCharacters } from "./src/services/characters_services.js";
 import './src/models/characters.js';
 
-server.listen(3000, async() => {
+
+
+const port = process.env.PORT || 3000;
+server.listen(port, async() => {
     try {
-        console.log("server running on port 3000");
+        console.log(`Server running ok: "http://localhost:${port}"`);
         
         await sequelize.authenticate();
         console.log('Connection has been established successfully');
