@@ -5,8 +5,6 @@ import sequelize from "./src/config/database.js";
 import { saveDBCharacters } from "./src/services/characters_services.js";
 import './src/models/characters.js';
 
-
-
 const port = process.env.PORT || 3000;
 server.listen(port, async() => {
     try {
@@ -19,7 +17,7 @@ server.listen(port, async() => {
 
         await sequelize.sync({ force: false });
         console.log("Database synced correctlly.");
-
+    
     } catch (error) {
             console.error('Unable to connect to the database', error);
     }
