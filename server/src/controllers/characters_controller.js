@@ -1,6 +1,7 @@
 import { Character } from '../models/characters.js';
 import { filterCharacters } from '../utils/filter_characters.js';
 import { pagination } from '../utils/pagination.js';
+import { NotFoundError, ValidationError } from '../utils/errors.js';
 
 export const getAllCharacters = async(req, res) => {
 
@@ -12,10 +13,7 @@ export const getAllCharacters = async(req, res) => {
         limit, offset, where
     })
 
-    if(characters.length === 0){
-        console.log('error while getting character of DB');
-        return
-    }
+    if(characters.length === 0)throw new NotFoundError("No characters found matching the criteria.");
     
     return res.status(200).json({
         succcess: true,
@@ -31,17 +29,11 @@ export const getAllCharacters = async(req, res) => {
 export const getCharacterById = async(req, res) => {
     const { id } = req.params;
 
-    if(!id || isNaN(id)){
-        console.log("Please send an invalid id")
-        return;
-    }
+    if(!id || isNaN(id))throw new ValidationError("Please send a valid id.");
 
     const character = await Character.findByPk(id);
 
-    if(!character){
-        console.log(`Dont found any character with ID ${id}, please send between 1 and 826`);
-        return;
-    }
+    if(!character)throw new NotFoundError(`Not character found with ID ${id}, please send an id between 1 and 826`);
 
     return res.status(200).json({
         success: true,
