@@ -1,10 +1,6 @@
 import Card from "./Card";
-import { useCharacters } from "../hooks/useCharacters";
 
-
-function CardSection () {
-    const { characters, error, page } = useCharacters();
-
+function CardSection ({ characters }) {
 
     return (
         <section>

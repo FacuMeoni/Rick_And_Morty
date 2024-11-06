@@ -1,7 +1,8 @@
 import SearchBar from "./SearchBar";
 
 
-function Navbar () {
+function Navbar ({ page, setPage }) {
+
     return (
         <nav>
             <SearchBar/>
