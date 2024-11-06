@@ -1,6 +1,6 @@
 const Pagination = ({ totalPages, currentPage, goToPage }) => {
 
-    if(totalPages === 0)return null;
+    if(totalPages <= 1)return null;
 
     const renderPagesButtons = () => {
         return Array.from({ length: totalPages}, (_, index) => { 

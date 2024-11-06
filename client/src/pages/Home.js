@@ -5,14 +5,14 @@ import Pagination from "../components/Pagination";
 
 
 function Home () {
-    const { characters, error, setPage, page, goToPage} = useCharacters();
+    const { characters, page, goToPage, fetchCharacters } = useCharacters();
 
     return (
         <section>
             <h1> 
                 home page
             </h1>
-            <Navbar page={page} setPage={setPage} />
+            <Navbar fetchCharacters={fetchCharacters} />
             <Pagination totalPages={page.totalPages} currentPage={page.currentPage} goToPage={goToPage}/>
             <CardSection characters={characters} />
         </section>

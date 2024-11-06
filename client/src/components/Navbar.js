@@ -1,11 +1,8 @@
-import SearchBar from "./SearchBar";
-
-
-function Navbar ({ page, setPage }) {
+function Navbar ({ fetchCharacters }) {
 
     return (
         <nav>
-            <SearchBar/>
+            <button onClick={() => fetchCharacters()}> Reset </button>
         </nav>
     )
 }
