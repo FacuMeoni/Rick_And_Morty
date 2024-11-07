@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import CardSection from "../components/CardSection";
 import { useCharacters } from "../hooks/useCharacters";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/Pagination/Pagination";
 
 
 function Home () {
