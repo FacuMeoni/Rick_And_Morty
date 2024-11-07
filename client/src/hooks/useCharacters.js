@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 const apiUrl = 'http://localhost:3000/characters';
 
 export const useCharacters = () => {
+    const location = useLocation();
     const [ characters, setCharacters ] = useState([]);
     const [ loading, setLoading ] = useState(null);
     const [ error, setError ] = useState(null);
@@ -15,7 +17,7 @@ export const useCharacters = () => {
         setLoading(true);
         setError(null);
 
-        axios.get(`${apiUrl}?page=${page.currentPage}`)
+        axios.get(`${apiUrl}${location.search}`)
         .then((response) => response.data)
         .then((data) => {
             setCharacters(data.characters);
@@ -35,6 +37,7 @@ export const useCharacters = () => {
             }
          }).finally(() => setLoading(false))
     }
+
     const goToPage = (newPage) => {
         setPage((prevPage) => ({
             prevPage,
@@ -43,8 +46,9 @@ export const useCharacters = () => {
     }
     
     useEffect(() => {
+        console.log(location)
         fetchCharacters();
-    }, [page.currentPage]);
+    }, [location]);
 
     return { characters, error, loading, page, setPage, goToPage, fetchCharacters };
 }

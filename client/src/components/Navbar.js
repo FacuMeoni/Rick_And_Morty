@@ -1,8 +1,9 @@
-function Navbar ({ fetchCharacters }) {
+import Filters from '../components/Filters';
 
+function Navbar () {
     return (
         <nav>
-            <button onClick={() => fetchCharacters()}> Reset </button>
+            <Filters/>
         </nav>
     )
 }

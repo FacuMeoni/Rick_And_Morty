@@ -9,9 +9,6 @@ function Home () {
 
     return (
         <section>
-            <h1> 
-                home page
-            </h1>
             <Navbar fetchCharacters={fetchCharacters} />
             <Pagination totalPages={page.totalPages} currentPage={page.currentPage} goToPage={goToPage}/>
             <CardSection characters={characters} />
