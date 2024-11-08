@@ -1,8 +1,11 @@
-import useQueryFilters from "../hooks/useQueryFilters";
 
 
-const Filters = () => {
-    const { updateQuery, resetQuery } = useQueryFilters();
+const Filters = ({ updateQuery, resetQuery }) => {
+
+    const handleClickReset = () => {
+        updateQuery("gender", "")
+        updateQuery("status", "")
+    }
     
     return(
         <div>
@@ -19,7 +22,7 @@ const Filters = () => {
                 <button onClick={() => updateQuery("gender", "Genderless")}>Genderless</button>
             </div>
 
-            <button onClick={resetQuery}>All</button>
+            <button onClick={handleClickReset}>Reset filters</button>
         </div>
     )
 }

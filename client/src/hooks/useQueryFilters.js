@@ -6,9 +6,10 @@ const useQueryFilters = () => {
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
 
-    const [ filters, setFilters ] =useState({
+    const [ filters, setFilters ] = useState({
         status: queryParams.get("status")|| "" ,
         gender: queryParams.get("gender")|| "",
+        name: queryParams.get("name") || "",
         currentPage: Number(queryParams.get("page") || 1)
     });
 
@@ -19,6 +20,11 @@ const useQueryFilters = () => {
                 ...filters,            
                 [key]: ""
             });
+        } if(key === "name"){
+            queryParams.set("name", value);
+            queryParams.delete("gender");
+            queryParams.delete("status");
+            queryParams.set("page", 1);
         } else { 
             queryParams.set(key, value);
             queryParams.set("page", 1);
@@ -33,6 +39,7 @@ const useQueryFilters = () => {
 
     const resetQuery = () => {
         queryParams.delete("gender"); 
+        queryParams.delete("name"); 
         queryParams.delete("status"); 
         queryParams.set("page", 1);
 
@@ -43,5 +50,4 @@ const useQueryFilters = () => {
     return { filters, updateQuery, resetQuery }
 }
 
-
-export default useQueryFilters;
+export default useQueryFilters; 
