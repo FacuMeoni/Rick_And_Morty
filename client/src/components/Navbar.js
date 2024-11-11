@@ -4,12 +4,12 @@ import useQueryFilters from '../hooks/useQueryFilters';
 
 function Navbar () {
 
-    const { updateQuery, resetQuery } = useQueryFilters();
+    const { filters, updateQuery, resetQuery } = useQueryFilters();
 
     return (
         <nav>
             <SearchBar updateQuery={updateQuery} resetQuery={resetQuery}/>
-            <Filters updateQuery={updateQuery} resetQuery={resetQuery}/>
+            <Filters updateQuery={updateQuery} resetQuery={resetQuery} filters={filters} />
         </nav>
     )
 }

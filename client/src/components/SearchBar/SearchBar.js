@@ -1,27 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const SearchBar = ({ updateQuery, resetQuery }) => {
 
     const [queryInfo, setQueryInfo] = useState("");
     const [ showDeleteButton, setShowDeleteButton] = useState(false);
 
-
     const handleChange = (event) => setQueryInfo(event.target.value);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         updateQuery("name", queryInfo);
         setShowDeleteButton(true);
     }
 
-
     const handleClick = (event) => {
         event.preventDefault();
-
-        resetQuery();
-        setQueryInfo("")
-        setShowDeleteButton(false)
+        resetQuery("name");
+        setQueryInfo("");
+        setShowDeleteButton(false);
     }
 
     return(
@@ -30,12 +26,12 @@ const SearchBar = ({ updateQuery, resetQuery }) => {
             <button type="submit">
                 Search
             </button>
-            { showDeleteButton && <button onClick={handleClick}>X</button> }
+            { showDeleteButton && <button onClick={handleClick}> X </button> }
         </form>
     )
 
 }
 
 
-export default SearchBar
+export default SearchBar;
 

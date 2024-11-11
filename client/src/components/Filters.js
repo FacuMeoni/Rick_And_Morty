@@ -1,12 +1,21 @@
+import { useEffect, useState } from "react"
 
 
-const Filters = ({ updateQuery, resetQuery }) => {
+const Filters = ({ filters, updateQuery, resetQuery }) => {
+
+    const [ showButton, setShowButton ] = useState(false);
+    const { status, gender} = filters;
 
     const handleClickReset = () => {
-        updateQuery("gender", "")
-        updateQuery("status", "")
+        resetQuery();
+        setShowButton(false);
     }
-    
+
+    useEffect(() => {
+        if(status || gender)setShowButton(true);
+        return () => setShowButton(false);
+    }, [gender, status, showButton])
+
     return(
         <div>
             <div>
@@ -14,7 +23,6 @@ const Filters = ({ updateQuery, resetQuery }) => {
                 <button onClick={() => updateQuery("status", "Dead")} >Dead</button>
                 <button onClick={() => updateQuery("status", "Unknown")}>Unknown</button>
             </div>
-            
 
             <div>
                 <button onClick={() => updateQuery("gender", "Male")}>Male</button>
@@ -22,7 +30,7 @@ const Filters = ({ updateQuery, resetQuery }) => {
                 <button onClick={() => updateQuery("gender", "Genderless")}>Genderless</button>
             </div>
 
-            <button onClick={handleClickReset}>Reset filters</button>
+           { showButton &&  <button onClick={handleClickReset}> Reset filters </button> }
         </div>
     )
 }
