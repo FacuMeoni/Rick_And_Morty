@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 const Filters = ({ filters, updateQuery, resetQuery }) => {
 
     const [ showButton, setShowButton ] = useState(false);
-    const { status, gender} = filters;
+    const { status, gender } = filters;
 
     const handleClickReset = () => {
         resetQuery();
@@ -12,9 +12,11 @@ const Filters = ({ filters, updateQuery, resetQuery }) => {
     }
 
     useEffect(() => {
-        if(status || gender)setShowButton(true);
+        
+        setShowButton(!!status || !!gender); 
         return () => setShowButton(false);
-    }, [gender, status, showButton])
+
+    }, [ gender, status ])
 
     return(
         <div>

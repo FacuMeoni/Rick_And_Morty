@@ -23,7 +23,7 @@ const SearchBar = ({ updateQuery, resetQuery }) => {
     return(
         <form onSubmit={handleSubmit}>
             <input placeholder="Search character by name, ej: Rick" value={queryInfo} onChange={handleChange}/> 
-            <button type="submit">
+            <button type="submit" disabled={!queryInfo}>
                 Search
             </button>
             { showDeleteButton && <button onClick={handleClick}> X </button> }
