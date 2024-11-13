@@ -6,12 +6,10 @@ const apiUrl = 'http://localhost:3000/characters';
 export const useCharacters = () => {
     const location = useLocation();
     const [ characters, setCharacters ] = useState([]);
+    const [characterDetail, setCharacterDetail] = useState({});
     const [ loading, setLoading ] = useState(null);
     const [ error, setError ] = useState(null);
-    const [ page, setPage ] = useState({
-        currentPage: 1,
-        totalPages: 0,
-    });
+    const [ totalPages, setTotalPages ] = useState(0);
 
     const fetchCharacters = () => {
         setLoading(true);
@@ -21,10 +19,7 @@ export const useCharacters = () => {
         .then((response) => response.data)
         .then((data) => {
             setCharacters(data.characters);
-            setPage((prevPage) => ({
-                ...prevPage,
-                totalPages: data.info.totalPages
-            }));
+            setTotalPages(data.info.totalPages)
         })
         .catch(error => { 
             if (error.response) { 
@@ -38,17 +33,9 @@ export const useCharacters = () => {
          }).finally(() => setLoading(false))
     }
 
-    const goToPage = (newPage) => {
-        setPage((prevPage) => ({
-            prevPage,
-            currentPage: newPage
-        }))
-    }
-    
     useEffect(() => {
-        console.log(location)
         fetchCharacters();
     }, [location]);
 
-    return { characters, error, loading, page, setPage, goToPage, fetchCharacters };
+    return { characters, error, loading, totalPages, setTotalPages, fetchCharacters, characterDetail, setCharacterDetail};
 }
