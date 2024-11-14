@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 const apiUrl = 'http://localhost:3000/characters';
 
 export const useCharacters = () => {
+
     const location = useLocation();
     const [ characters, setCharacters ] = useState([]);
     const [characterDetail, setCharacterDetail] = useState({});
@@ -16,20 +17,25 @@ export const useCharacters = () => {
         setError(null);
 
         axios.get(`${apiUrl}${location.search}`)
-        .then((response) => response.data)
+        .then((response) => {
+            setLoading(true);
+            return response.data
+        })
         .then((data) => {
             setCharacters(data.characters);
-            setTotalPages(data.info.totalPages)
+            setTotalPages(data.info.totalPages);
+            setError(false);
         })
         .catch(error => { 
             if (error.response) { 
-                setError(error.response.data.message)
+                setError(error.response.data.message);
             } else if(error.request){
-                setError('Network error, please try again later.')
+                setError('Network error, please try again later.');
             } else {
                 console.log('Unexpected error:', error)
-                setError('An unnexpected error ocurred. Please try again later.')
+                setError('An unnexpected error ocurred. Please try again later.');
             }
+            setCharacters([]);
          }).finally(() => setLoading(false))
     }
 

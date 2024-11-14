@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchBar = ({ updateQuery, resetQuery }) => {
+const SearchBar = ({ updateQuery, resetQuery}) => {
 
     const [queryInfo, setQueryInfo] = useState("");
     const [ showDeleteButton, setShowDeleteButton] = useState(false);
