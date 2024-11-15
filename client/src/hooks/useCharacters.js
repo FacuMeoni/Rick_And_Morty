@@ -1,47 +1,25 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import useFetch from './useFetch';
 const apiUrl = 'http://localhost:3000/characters';
 
 export const useCharacters = () => {
 
     const location = useLocation();
+    const { data, error, isPending, fetch } = useFetch(`${apiUrl}${location.search}`);
     const [ characters, setCharacters ] = useState([]);
-    const [characterDetail, setCharacterDetail] = useState({});
-    const [ loading, setLoading ] = useState(null);
-    const [ error, setError ] = useState(null);
     const [ totalPages, setTotalPages ] = useState(0);
 
-    const fetchCharacters = () => {
-        setLoading(true);
-        setError(null);
-
-        axios.get(`${apiUrl}${location.search}`)
-        .then((response) => {
-            setLoading(true);
-            return response.data
-        })
-        .then((data) => {
-            setCharacters(data.characters);
-            setTotalPages(data.info.totalPages);
-            setError(false);
-        })
-        .catch(error => { 
-            if (error.response) { 
-                setError(error.response.data.message);
-            } else if(error.request){
-                setError('Network error, please try again later.');
-            } else {
-                console.log('Unexpected error:', error)
-                setError('An unnexpected error ocurred. Please try again later.');
-            }
-            setCharacters([]);
-         }).finally(() => setLoading(false))
-    }
-
     useEffect(() => {
-        fetchCharacters();
+        fetch();
     }, [location]);
 
-    return { characters, error, loading, totalPages, setTotalPages, fetchCharacters, characterDetail, setCharacterDetail};
+    useEffect(() => {
+        if(data){
+            setCharacters(data.characters)
+            setTotalPages(data.info?.totalPages)
+        }
+    }, [data])
+
+    return { characters, error, isPending, totalPages };
 }

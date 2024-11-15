@@ -8,6 +8,7 @@ const Pagination = ({ totalPages }) => {
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const currentPage = Number(queryParams.get("page")) || 1;
+    
     function handlePageChange(newPage) {
         queryParams.set("page", newPage)
         navigate({ search: queryParams.toString() });

@@ -12,10 +12,9 @@ const Filters = ({ filters, updateQuery, resetQuery }) => {
     }
 
     useEffect(() => {
-        
         setShowButton(!!status || !!gender); 
+        
         return () => setShowButton(false);
-
     }, [ gender, status ])
 
     return(

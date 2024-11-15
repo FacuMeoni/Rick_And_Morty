@@ -5,7 +5,6 @@ export const useModal = () => {
     const [visibleModal, setVisibleModal] = useState(false)
     const [selectedCharacter, setSelectedCharacter] = useState(null);
 
-
     const openModal = ({ character }) => {
         setSelectedCharacter(character);
         setVisibleModal(true);

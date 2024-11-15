@@ -7,5 +7,4 @@ const renderPagesButtons = ({ totalPages, handlePageChange }) => {
     });
 }
 
-
 export default renderPagesButtons;
