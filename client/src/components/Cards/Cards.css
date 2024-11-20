@@ -1,0 +1,48 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(
+            200px,
+            1fr
+        )
+    );
+    gap: 16px;
+    overflow-y: auto;
+    max-height: 80vh;
+    width: 100%;
+}
+
+.cards-container::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+}
+  
+.cards-container::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 300/300;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    border-radius: 0 0 8px 8px;
+}
+
+.card-title {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+}
