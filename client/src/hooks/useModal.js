@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const useModal = () => {
 
@@ -14,16 +14,6 @@ export const useModal = () => {
         setVisibleModal(false);
         setSelectedCharacter(null)
     }
-
-    useEffect(() => {
-        if (visibleModal) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
-        
-        return () => document.body.classList.remove('no-scroll');
-    }, [visibleModal]);
 
     return { visibleModal, selectedCharacter, openModal , closeModal }
 }

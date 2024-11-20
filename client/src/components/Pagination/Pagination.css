@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.current-page {
+    background-color: #eaeaea;
+    color: #111;
+}
+
+
+.current-page:hover {
+    background-color: #ccc;
+}
+
+.pages-button:disabled {
+    background-color: #3f3f3f;
+    color: #fff;
+    border: none;
+    cursor: not-allowed;
+}

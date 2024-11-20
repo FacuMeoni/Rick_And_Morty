@@ -3,13 +3,13 @@ const SetStatusByBackground = (status) => {
 
     switch(status) {
         case "Alive":
-            background = '#4df855';
+            background = '#32f83c'
             break;
         case "Dead": 
             background = '#fe4242'
             break;
         case "unknown": 
-            background = '#888'
+            background = '#652af9'
             break;
         default: 
             break;

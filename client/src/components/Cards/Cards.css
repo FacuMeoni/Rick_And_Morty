@@ -37,12 +37,27 @@
 .card-main {
     display: flex;
     flex-direction: column;
-    text-align: start;
+    text-align: center;
     border-radius: 0 0 8px 8px;
+    padding: 2px;
 }
 
 .card-title {
     cursor: pointer;
     font-size: 16px;
     font-weight: bolder;
+}
+
+
+.card-title:hover {
+    color: #ffffff;
+}
+
+.card-info {
+    font-size: 14px;
+    color: #111;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
 }

@@ -1,7 +1,8 @@
 import './Cards.css';
+import { GenderSvg } from '../../assets/GenderSvg';
 import SetStatusByBackground from './SetBackgroundByStatus';
 
-function Card ({ id, name, image, status, gender,  onClick }) {
+function Card ({ id, name, image, status, gender, species, onClick }) {
     
     return (
         <article id="card">  
@@ -10,7 +11,7 @@ function Card ({ id, name, image, status, gender,  onClick }) {
             </header>
             <main className="card-main" style={{ backgroundColor: SetStatusByBackground(status)}}>
                 <h2 className="card-title" onClick={onClick}> { name } </h2>
-                <span className="card-info"> { gender } </span>
+                <span className="card-info"> <GenderSvg/> { gender } </span>
             </main>
         </article>
     )
