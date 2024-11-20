@@ -14,14 +14,12 @@
 }
 
 .filters {
-    color: #111;
-    background-color: #eaeaea;
     font-size: 16px;
     padding: 4px;
 }
 
 .filters:hover {
-    background-color: #ddd;
+    background-color: #222;
 }
 
 .reset-filters {
@@ -31,21 +29,20 @@
 }
 
 .active {
-    background-color: #333 !important;
-    color: #fff !important;
+    background-color: #eaeaea !important;
+    color: #222 !important;
 }
 
 .active:hover{
-    background-color: #444;
+    background-color: #fff;
 }
 
 .status-Alive, .status-Dead, .status-unknown {
-    color: #111;
     border: none;
 }
 
 .status-Alive {
-    background-color: #32f83c;
+    background-color: #27b92f;
 }
 .status-Alive:hover {
     background-color: #65e36b;
@@ -93,8 +90,18 @@
     border: 1px solid #fff;
 }
 
+#searchbar::placeholder {
+    color: #eaeaea;
+}
+
 .search-button:hover {
     background-color: #222;
+}
+
+.search-button:disabled {
+    color: #333;
+    border: none;
+    cursor: not-allowed;
 }
 
 .reset-button {

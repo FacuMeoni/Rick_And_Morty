@@ -6,7 +6,7 @@
 }
 
 .current-page {
-    background-color: #eaeaea;
+    background-color: #fff;
     color: #111;
 }
 
@@ -16,8 +16,8 @@
 }
 
 .pages-button:disabled {
-    background-color: #3f3f3f;
-    color: #fff;
+    background-color: #111;
+    color: #333;
     border: none;
     cursor: not-allowed;
 }
