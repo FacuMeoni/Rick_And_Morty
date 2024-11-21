@@ -1,6 +1,9 @@
 import './modal.css'
+import SetStatusByBackground from '../../utils/SetBackgroundByStatus';
 
 const Modal = ({character, closeModal}) => {
+
+  const background = SetStatusByBackground(character.status)
 
   return (
   <div className="modal-container">
@@ -9,25 +12,26 @@ const Modal = ({character, closeModal}) => {
       aria-labelledby="modal-title" 
       aria-describedby="modal-content"
       id="modal"
+      style={{ backgroundColor: background}}
     >
-
-      <button className='close-button' onClick={closeModal} aria-label="Close modal" > X </button>
       <header className="modal-header">
-        <img src={character.image} alt={character.name} id="modal-img"/>
+        <button className='close-button' onClick={closeModal} aria-label="Close modal"> X </button>
+        <img src={character.image} alt={character.name} id="modal-img" style={{ border:`4px solid ${background}`}} />
       </header>
 
-      <footer className="modal-footer">
-        <h3 id="modal-title">
-          { character.name }
-        </h3>
-        
-        <div id="modal-content">
+
+      <main className="modal-main" style={{ color: background}}>
+          <h3 id="modal-title">
+            { character.name }
+          </h3>
+
+        <div className="modal-info"> 
           <span> Status: { character.status } </span> 
           <span> Gender: {character.gender} </span>
           <span> Species: { character.species }</span>
           <span> Origin: { character.origin } </span>
         </div>
-      </footer>
+      </main>
     </div>
   </div>
   )

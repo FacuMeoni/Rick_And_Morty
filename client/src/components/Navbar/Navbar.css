@@ -23,7 +23,6 @@
 }
 
 .reset-filters {
-    background-color: #ff3030;
     color: #fff;
     padding: 6px;
 }
@@ -45,15 +44,15 @@
     background-color: #27b92f;
 }
 .status-Alive:hover {
-    background-color: #65e36b;
+    background-color: #3ccd34;
 }
 
-.status-Dead {
-   background-color: #fe4242;
+.status-Dead, .reset-filters {
+   background-color: #d62727;
 }
 
-.status-Dead:hover {
-    background-color: #ff6969;
+.status-Dead:hover, .reset-filters:hover {
+    background-color: #ff3030;
 }
 
 .status-unknown {
@@ -61,7 +60,7 @@
 }
 
 .status-unknown:hover {
-    background-color: #875afa;
+    background-color: #775afa;
 }
 
 #form-container {

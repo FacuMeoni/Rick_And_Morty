@@ -1,10 +1,12 @@
+import './Error.css';
+
 const ErrorComponent = ({ error }) => {
   return(
-    <div>
-        <span>
+    <section className='error-section'>
+        <span className="error-text">
             { error }
         </span>
-    </div>
+    </section>
   )
 }
 

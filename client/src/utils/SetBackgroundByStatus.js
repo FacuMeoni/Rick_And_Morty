@@ -6,7 +6,7 @@ const SetStatusByBackground = (status) => {
             background = '#27b92f'
             break;
         case "Dead": 
-            background = '#fe4242'
+            background = '#d62727'
             break;
         case "unknown": 
             background = '#652af9'

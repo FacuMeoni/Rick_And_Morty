@@ -1,0 +1,7 @@
+.error-text {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: underline red;
+    text-underline-offset: 4px;
+}

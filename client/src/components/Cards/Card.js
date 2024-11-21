@@ -1,6 +1,6 @@
 import './Cards.css';
 import { GenderSvg } from '../../assets/GenderSvg';
-import SetStatusByBackground from './SetBackgroundByStatus';
+import SetStatusByBackground from '../../utils/SetBackgroundByStatus';
 
 function Card ({ id, name, image, status, gender, species, onClick }) {
     

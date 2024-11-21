@@ -28,7 +28,7 @@ function Home () {
             </main>
 
             <footer className="home-footer">
-                <Pagination totalPages={totalPages} />
+                <Pagination totalPages={totalPages} error={error} />
             </footer>
         </section>
     )

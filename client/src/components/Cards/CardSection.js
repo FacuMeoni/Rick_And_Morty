@@ -1,7 +1,7 @@
 import './Cards.css';
 import Card from "./Card";
 import Modal from "../Modal_character/Modal";
-import ErrorComponent from "../Error";
+import ErrorComponent from "../Error/Error";
 
 function CardSection ({ characters, visibleModal, openModal, closeModal, selectedCharacter, error }) {
     

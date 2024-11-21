@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import renderPagesButtons from './RenderPageButtons';
 
 
-const Pagination = ({ totalPages }) => {
+const Pagination = ({ totalPages, error }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Pagination = ({ totalPages }) => {
         navigate({ search: queryParams.toString() });
     }
 
-    if(totalPages <= 1)return null;
+    if(totalPages <= 1 || !totalPages || error )return null;
 
     return(
         <div className='pagination'>
