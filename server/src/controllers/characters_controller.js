@@ -8,7 +8,7 @@ export const getAllCharacters = async(req, res) => {
     const { page = 1, status, gender, origin, species, name } = req.query;
     const where = filterCharacters({ status, gender, origin, species, name })
     const totalCharacters = await Character.count({ where });
-    if(totalCharacters === 0)throw new NotFoundError("Not found any characters.");
+    if(totalCharacters === 0)throw new NotFoundError("No characters found.");
     const { limit, offset, totalPages } = pagination(totalCharacters, page);
     const characters = await Character.findAll({
         limit, offset, where
@@ -32,7 +32,7 @@ export const getCharacterById = async(req, res) => {
 
     const character = await Character.findByPk(id);
 
-    if(!character)throw new NotFoundError(`Not character found with ID ${id}, please send an id between 1 and 826`);
+    if(!character)throw new NotFoundError(`No character found with ID ${id}, please provide an id between 1 and 826`);
 
     return res.status(200).json({
         success: true,
