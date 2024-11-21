@@ -8,13 +8,11 @@ export const getAllCharacters = async(req, res) => {
     const { page = 1, status, gender, origin, species, name } = req.query;
     const where = filterCharacters({ status, gender, origin, species, name })
     const totalCharacters = await Character.count({ where });
-    if(totalCharacters === 0)throw new NotFoundError("Not found any characters with that filters");
+    if(totalCharacters === 0)throw new NotFoundError("Not found any characters.");
     const { limit, offset, totalPages } = pagination(totalCharacters, page);
     const characters = await Character.findAll({
         limit, offset, where
     })
-
-    if(characters.length === 0)throw new NotFoundError("No characters found matching the criteria.");
     
     return res.status(200).json({
         succcess: true,
