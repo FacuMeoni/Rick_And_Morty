@@ -1,5 +1,6 @@
 import './modal.css'
 import SetStatusByBackground from '../../utils/SetBackgroundByStatus';
+import { CloseSvg } from '../../assets/CloseSvg';
 
 const Modal = ({character, closeModal}) => {
 
@@ -15,8 +16,8 @@ const Modal = ({character, closeModal}) => {
       style={{ backgroundColor: background}}
     >
       <header className="modal-header">
-        <button className='close-button' onClick={closeModal} aria-label="Close modal"> X </button>
-        <img src={character.image} alt={character.name} id="modal-img" style={{ border:`4px solid ${background}`}} />
+        <button className='close-button' onClick={closeModal} aria-label="Close modal"> <CloseSvg/> </button>
+        <img src={character.image} alt={character.name} id="modal-img" style={{ border:`6px solid ${background}`}} />
       </header>
 
 
