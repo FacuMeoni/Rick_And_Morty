@@ -17,6 +17,7 @@
     width: 4px;
     height: 6px;
 }
+
   
 .cards-container::-webkit-scrollbar-thumb {
     background-color: #ffffff;

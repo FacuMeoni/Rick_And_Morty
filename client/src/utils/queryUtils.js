@@ -6,7 +6,7 @@ export const getInitialFilters = (queryParams) => ({
 });
 
 export const updateQueryParams = ({ queryParams, key,  value, setFilters} ) => {
-    if (key === "name") { //if key is name, reset other filters and set name value.
+    if (key === "name") { 
         queryParams.set("name", value);
         queryParams.delete("gender");
         queryParams.delete("status");
@@ -16,32 +16,32 @@ export const updateQueryParams = ({ queryParams, key,  value, setFilters} ) => {
             status: false,
             gender: false,
         });
-    } else if (value === "" || queryParams.get(key) === value) { // Else if value empty or the same of query params key, delete.
+    } else if (value === "" || queryParams.get(key) === value) { 
         queryParams.delete(key);
         setFilters((prev) => ({ ...prev, [key]: false }));
-    } else { // Else update an specific filter with the new value.
+    } else { 
         queryParams.set(key, value);
         setFilters((prev) => ({ ...prev, [key]: value }));
     }
 
-    //reset to page 1 and update filters.
+
     queryParams.set("page", 1);
     setFilters((prev) => ({ ...prev, currentPage: 1 }));
 }
 
 export const resetQueryParams = ({ queryParams, filter, setFilters}) => {
-  if (filter === "name") {  // if filter parameter is name, delete all query params and reset filters.
+  if (filter === "name") { 
     queryParams.delete("name");
     queryParams.delete("gender");
     queryParams.delete("status");
     setFilters({ status: false, gender: false, name: false });
-    } else {  // else delete gender&status query params and reset filters.
+    } else { 
         queryParams.delete("gender");
         queryParams.delete("status");
         setFilters((prev) => ({ ...prev, gender: false, status: false  }));
     }
 
-    //reset to page 1 and update filters.
+
     queryParams.set("page", 1);
     setFilters((prev) => ({ ...prev, currentPage: 1 }));
 }
