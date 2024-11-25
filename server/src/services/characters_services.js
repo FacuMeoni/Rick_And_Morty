@@ -38,10 +38,9 @@ export const saveDBCharacters = async() => {
     if(totalCharacters > 0 || totalCharacters === 826){
         console.log(`${totalCharacters} characters already saved`);
         return;
+    } else {
+        await Character.bulkCreate(characters);
+        console.log(`${characters.length} characters saved correctly.`)
     }
-
-    await Character.bulkCreate(characters);
-    
-    console.log(`${characters.length} characters saved correctly.`)
     return; 
 }
