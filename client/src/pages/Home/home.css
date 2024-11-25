@@ -7,7 +7,7 @@
     height: 100vh;
     max-width: 100dvw;
     background-color: #f7f7f7;
-    overflow: hidden;
+    overflow-y: auto;
     padding: 10px;
     background-image: url("../../assets/Background.webp");
 }
@@ -30,3 +30,14 @@
     align-items: center;
 }
 
+@media (width <= 290px) {
+    .home-header {
+        display: none;
+    }
+    .home-main {
+        padding: 2px;
+    }
+    .home-footer {
+        flex: 1;
+    }
+}
