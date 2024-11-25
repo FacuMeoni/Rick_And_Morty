@@ -9,6 +9,11 @@ const server = express();
 server.use(express.json());
 server.use(morgan('dev'));
 server.use(corsMiddleware(ACCEPTED_ORIGINS));
+server.use('/', (req,res) => {
+    res.json({
+        characters: "https://rick-andmorty.up.railway.app/characters"
+    })
+})
 server.use('/characters', characterRouter);
 server.use(errHandler);
 server.use((req, res, next) => {
