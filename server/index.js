@@ -11,7 +11,7 @@ server.listen(PORT, async() => {
         await sequelize.authenticate();
         console.log('Connection has been established successfully');
         
-       //await saveDBCharacters();
+        await saveDBCharacters();
 
         await sequelize.sync({ force: false });
         console.log("Database synced correctlly.");

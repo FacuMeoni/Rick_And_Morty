@@ -32,10 +32,16 @@ export const fetchAllCharacters = async() => {
 
 export const saveDBCharacters = async() => {
     const characters = await fetchAllCharacters();
+    const totalCharacters = await Character.count();
 
     if(characters.length === 0)console.log("Error fetching characters");
-    
+    if(totalCharacters > 0 || totalCharacters === 826){
+        console.log(`${totalCharacters} characters already saved`);
+        return;
+    }
+
     await Character.bulkCreate(characters);
     
     console.log(`${characters.length} characters saved correctly.`)
+    return; 
 }
