@@ -134,7 +134,7 @@
     }
 }
 
-@media (width <= 275px) {
+@media (width <= 290px) {
     .navbar {
         display: none;
     }
