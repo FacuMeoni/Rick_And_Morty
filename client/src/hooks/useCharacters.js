@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useFetch from './useFetch';
-const apiUrl = 'http://localhost:3000/characters';
+const apiUrl = 'https://rick-andmorty.up.railway.app/characters';
 
 export const useCharacters = () => {
 
