@@ -1,9 +1,7 @@
-import { config } from 'dotenv';
-config();
 import { Sequelize } from "sequelize";
-const { DB, DB_USER, DB_PASS, DB_HOST} = process.env
+import { DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT } from './variables_provider.js';
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB}`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
     logging: false
 });
 
