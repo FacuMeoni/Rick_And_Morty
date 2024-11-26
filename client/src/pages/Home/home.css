@@ -38,12 +38,15 @@
         padding: 2px;
     }
     .home-footer {
-        flex: 1;
+        flex: 1 auto;
     }
 }
 
 @media (width <= 380px) {
     .home-container {
         overflow: auto;
+    }
+    .home-footer {
+        flex: 1 auto;
     }
 }
