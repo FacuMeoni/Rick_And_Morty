@@ -13,7 +13,7 @@ server.listen(PORT, async() => {
         
         await saveDBCharacters();
 
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ force: false });
         console.log("Database synced correctlly.");
     
     } catch (error) {
