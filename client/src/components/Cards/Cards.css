@@ -62,3 +62,25 @@
     gap: 8px;
     text-align: center;
 }
+
+.card-image.hidden {
+    display: none;
+}
+
+.card-image.loading {
+    animation: pulse 1.5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Efecto de animación */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
