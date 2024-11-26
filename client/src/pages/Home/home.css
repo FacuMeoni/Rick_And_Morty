@@ -41,3 +41,9 @@
         flex: 1;
     }
 }
+
+@media (width <= 380px) {
+    .home-container {
+        overflow: auto;
+    }
+}
