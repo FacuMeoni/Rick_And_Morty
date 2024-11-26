@@ -1,10 +1,11 @@
 import './modal.css'
-import SetStatusByBackground from '../../utils/SetBackgroundByStatus';
+import '../../utils/BackgroundStyles.css';
+import setBackgroundByStatus from  '../../utils/SetBackgroundByStatus'
 import { CloseSvg } from '../../assets/CloseSvg';
 
-const Modal = ({character, closeModal}) => {
+const Modal = ({ character, closeModal }) => {
 
-  const background = SetStatusByBackground(character.status)
+  const background= setBackgroundByStatus(character.status);
 
   return (
   <div className="modal-container">
@@ -12,16 +13,16 @@ const Modal = ({character, closeModal}) => {
       role="dialog" 
       aria-labelledby="modal-title" 
       aria-describedby="modal-content"
-      id="modal"
-      style={{ backgroundColor: background}}
+      className={`modal ${character.status}`}
+      style={{ color: background }}
     >
       <header className="modal-header">
         <button className='close-button' onClick={closeModal} aria-label="Close modal"> <CloseSvg/> </button>
-        <img src={character.image} alt={character.name} id="modal-img" style={{ border:`6px solid ${background}`}} />
+        <img src={character.image} alt={character.name} id="modal-img" style={{ border:'6px solid'}} />
       </header>
 
 
-      <main className="modal-main" style={{ color: background}}>
+      <main className="modal-main">
           <h3 id="modal-title">
             { character.name }
           </h3>

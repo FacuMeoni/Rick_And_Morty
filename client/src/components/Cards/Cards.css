@@ -9,6 +9,7 @@
     );
     gap: 16px;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: 80vh;
     width: 100%;
 }
@@ -17,13 +18,19 @@
     cursor: pointer;
 }
 
-#card:hover{
-    .card-image {
-        transform: scale(1.02);
-        border-radius: 8px 8px 0 0;
-    };
-
-    overflow: hidden;
+#card:hover {
+    .Alive {
+        background-color: #3ccd34;
+    }
+    .Dead {
+        background-color: #ff3030;
+    }
+    .unknown {
+        background-color: #775afa;
+    }
+    .card-title, .card-info  {
+        color: #ffffff;
+    }
 }
 
 .cards-container::-webkit-scrollbar {
@@ -62,14 +69,9 @@
     font-weight: bolder;
 }
 
-
-.card-title:hover {
-    color: #ffffff;
-}
-
 .card-info {
     font-size: 14px;
-    color: #fff;
+    color: #111;
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -82,17 +84,22 @@
 
 .card-image.loading {
     animation: pulse 1.5s infinite ease-in-out;
-    opacity: 0.8;
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
+        opacity: 1;
     }
     50% {
         transform: scale(1.05);
+        opacity: 0.5;
+
     }
     100% {
         transform: scale(1);
+        opacity: 1;
     }
 }
+
+
