@@ -1,4 +1,5 @@
 import './Navbar.css';
+import { CloseSvg, closeSvg } from '../../assets/CloseSvg';
 import { useEffect, useState } from "react";
 import { SearchSvg } from '../../assets/SearchSvg';
 
@@ -37,7 +38,7 @@ const SearchBar = ({ updateQuery, resetQuery, filters }) => {
             <button type="submit" disabled={!queryInfo} className='search-button'>
                 <SearchSvg/>
             </button>
-            { showDeleteButton && <button onClick={handleReset} className='reset-button'> X </button> }
+            { showDeleteButton && <button onClick={handleReset} className='reset-button'> <CloseSvg /> </button> }
         </form>
     )
 
