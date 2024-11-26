@@ -13,6 +13,19 @@
     width: 100%;
 }
 
+#card {
+    cursor: pointer;
+}
+
+#card:hover{
+    .card-image {
+        transform: scale(1.02);
+        border-radius: 8px 8px 0 0;
+    };
+
+    overflow: hidden;
+}
+
 .cards-container::-webkit-scrollbar {
     width: 4px;
     height: 6px;
@@ -72,7 +85,6 @@
     opacity: 0.8;
 }
 
-/* Efecto de animación */
 @keyframes pulse {
     0% {
         transform: scale(1);

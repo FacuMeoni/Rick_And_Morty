@@ -11,7 +11,7 @@ function Card ({ id, name, image, status, gender, species, onClick }) {
     const setLoadingImage = () => setImageLoaded(true);
     
     return (
-        <article id="card">  
+        <article id="card" onClick={onClick}>  
             <header className="card-header">      
                 {image && !ImageLoaded && <img
                         src={LoadingImage}
@@ -24,7 +24,7 @@ function Card ({ id, name, image, status, gender, species, onClick }) {
                 )}
             </header>
             <main className="card-main" style={{ backgroundColor: SetStatusByBackground(status)}}>
-                <h2 className="card-title" onClick={onClick}> { name } </h2>
+                <h2 className="card-title"> { name } </h2>
                 <span className="card-info"> <GenderSvg/> { gender } </span>
             </main>
         </article>
